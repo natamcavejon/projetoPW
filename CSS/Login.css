@@ -2,7 +2,7 @@
 /* BASIC */
 
 html {
-    background-color: #56baed;
+    background-color:  #353738;
   }
   .iconMa{
     font-size:28px;
@@ -79,7 +79,7 @@ html {
   }
   
   h2.active {
-    color: #0d0d0d;
+    color: #353738;
     border-bottom: 2px solid #5fbae9;
   }
   
@@ -124,7 +124,7 @@ html {
   input[type=text] {
     background-color: #f6f6f6;
     border: none;
-    color: #0d0d0d;
+    color: #353738;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -266,4 +266,11 @@ html {
   #icon {
     width:60%;
   }
-  
+  .centro {
+    text-align: center;
+    padding-top: 60px;
+}
+.centro img{
+  width: 450px;
+  display:inline-block;
+}
