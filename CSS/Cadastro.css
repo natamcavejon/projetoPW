@@ -240,6 +240,7 @@ html {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
+    padding-left: 
   }
   
   .fadeIn.second {
@@ -294,4 +295,13 @@ html {
   .align{
     justify-content: center;
   }
+  .centro img{
+    width: 450px;
+    display:inline-block;
+  }
+  .centro {
+    text-align: center;
+    padding-top: 60px;
+    padding-right: 97px;
+}
   
