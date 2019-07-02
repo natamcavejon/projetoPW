@@ -294,6 +294,7 @@ html {
   }
   .align{
     justify-content: center;
+    text-align: center;
   }
   .centro img{
     width: 450px;
