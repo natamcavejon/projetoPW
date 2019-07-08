@@ -24,7 +24,7 @@
         alertMessage = form.find('.alert'),
         routes = {
             login: origin + '/admin/api/auth.php',
-            cadastro: origin + '/admin/api/clientes.php',
+            cadastro: origin + '/projetoPW/api/cadastrarMecanico.php',
             servico: origin + '/admin/api/alguem...php',
             credito: origin + '/admin/api/InsertCredito.php'
         };
