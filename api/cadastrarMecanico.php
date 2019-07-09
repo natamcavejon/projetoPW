@@ -7,13 +7,13 @@ require_once('../controller/DBUtils.php');
 
 insertData();
 
-function returnSelect($_prEmail)
+function returnSelect($_prCracha)
 {
     $user = new mecanico();
     $dbutil = new DBUtils();
     // Separa o Select em partes para não ficar uma linha muito extensa.
     $campos = ' u.id_usuario';
-    $condicao = sprintf("u.email = %s", $dbutil->paraTexto($_prEmail));
+    $condicao = sprintf("u.cracha = %s", $dbutil->paraTexto($_prCracha));
     $sql = sprintf("SELECT %s FROM %s AS u WHERE %s",
         $campos,
         $user->getCampo('tabela'),
@@ -55,8 +55,8 @@ function insertData()
         }
     } else {
         echo json_encode(array(
-            'success' => true,
-            'message' => 'Email já existente em nossos registros!'
+            'success' => false,
+            'message' => 'Mecanico já cadastrado em nossos registros!'
         ));
     }
 }

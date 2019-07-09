@@ -23,7 +23,7 @@
         origin = window.location.origin  || '',
         alertMessage = form.find('.alert'),
         routes = {
-            login: origin + '/admin/api/auth.php',
+            login: origin + '/projetoPW/api/login.php',
             cadastro: origin + '/projetoPW/api/cadastrarMecanico.php',
             servico: origin + '/admin/api/alguem...php',
             credito: origin + '/admin/api/InsertCredito.php'
@@ -67,7 +67,7 @@
             .then(function (response) {
                 form.trigger('reset');
 
-                window.location.href = origin + "/admin/view/index.php";
+                window.location.href = origin + "/projetoPW/view/Formulario.html";
             }, function (response){
                 var message = response.responseJSON.message;
 
@@ -83,10 +83,10 @@
         sendForm(form, url)
             .then(function (response) {
                 var message = response.message;
-
                 form.trigger('reset');
 
-                showAlert(message, 'success');
+                var state = (response.success) ? 'success' : 'warning';
+                showAlert(message, state);
             }, function (response){
                 var message = response.responseJSON.message;
 
@@ -110,7 +110,7 @@
     }
 
     function showAlert (message, state) {
-        state = state || 'warnig';
+        state = state || 'warning';
 
         alertMessage
             .addClass('alert-' + state)

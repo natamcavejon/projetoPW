@@ -16,12 +16,12 @@ function authUser()
     $dbUtl = new DBUtils();
 
     // params
-    $mecanico->setCampo("email", $dbUtl->paraTexto($_GET['email']));
-    $mecanico->setCampo("senha", $dbUtl->paraTexto(MD5($_GET['senha'])));
+    $mecanico->setCampo("cracha", $dbUtl->paraTexto($_POST['cracha']));
+    $mecanico->setCampo("senha", $dbUtl->paraTexto(MD5($_POST['senha'])));
 
-    $query = sprintf("SELECT * FROM %s WHERE Email = %s AND Senha = %s",
+    $query = sprintf("SELECT * FROM %s WHERE cracha = %s AND senha = %s",
         $mecanico->getCampo("tabela"),
-        $mecanico->getCampo("email"),
+        $mecanico->getCampo("cracha"),
         $mecanico->getCampo("senha")
     );
 

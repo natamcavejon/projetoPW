@@ -29,7 +29,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <script src="JS/jquery.inputmask.bundle.js"></script>
 
-
     <link rel="stylesheet" href="../CSS/Cadastro.css">
 </head>
 <body>
@@ -44,18 +43,26 @@
                         <div class="col-md-12 ">
                             <div class="form-group">
                                 <input type="text" class="form-control align" name="nome" placeholder="Nome *" value="" required/>
+                                <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="sobrenome" placeholder="Sobrenome *" value="" required/>
+                                <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="cracha" placeholder="Cracha Funcionario *" value="" required/>
+                                <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input id="senha" type="password" name="senha" class="form-control" placeholder="Senha *" value="" required/>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirme sua Senha *" data-match="#senha" data-match-error="As senhas não conferem!"  required/>
+                                <div>
+                                    <input id="senha" type="password" name="senha" class="form-control form-control-user" placeholder="Senha *" value="" required/>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" placeholder="Confirme sua Senha *" data-match="#senha" data-match-error="As senhas não conferem!" required/>
+                                    <div class="help-block with-errors"></div>
+                                </div>
                             </div>
                             <div>
                                 <button type="submit" class="btnRegister" value="Registrar">Registrar</button>
