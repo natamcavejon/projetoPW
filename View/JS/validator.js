@@ -66,8 +66,13 @@
         sendForm(form, url)
             .then(function (response) {
                 form.trigger('reset');
+                if (!response.success) {
+                    var message = response.message;
 
-                window.location.href = origin + "/projetoPW/view/Formulario.html";
+                    showAlert(message);
+                } else {
+                    window.location.href = origin + "/projetoPW/view/Formulario.html";
+                }
             }, function (response){
                 var message = response.responseJSON.message;
 

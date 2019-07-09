@@ -42,13 +42,10 @@ function authUser()
         ));
     } else {
         echo json_encode(array(
-            'status' => 401,
             'success' => false,
             'message' => 'E-mail ou senha inválidos',
             'error' => mysqli_error($db)
         ));
-
-        http_response_code(401);
     }
 
     exit();
