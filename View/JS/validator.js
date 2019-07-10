@@ -23,9 +23,9 @@
         origin = window.location.origin  || '',
         alertMessage = form.find('.alert'),
         routes = {
-            login: origin + '/admin/api/auth.php',
-            cadastro: origin + '/admin/api/clientes.php',
-            servico: origin + '/admin/api/alguem...php',
+            login: origin + '/projetoPW/api/login.php',
+            cadastro: origin + '/projetoPW/api/cadastrarMecanico.php',
+            ordemservico: origin + '/projetoPW/api/cadastarOrdemServico.php',
             credito: origin + '/admin/api/InsertCredito.php'
         };
 
@@ -50,7 +50,7 @@
                 case 'cadastro':
                     formCadastro(route);
                     break;
-                case 'servico':
+                case 'ordemservico':
                     formServico(route);
                     break;
                 case 'credito':
@@ -66,8 +66,13 @@
         sendForm(form, url)
             .then(function (response) {
                 form.trigger('reset');
+                if (!response.success) {
+                    var message = response.message;
 
-                window.location.href = origin + "/admin/view/index.php";
+                    showAlert(message);
+                } else {
+                    window.location.href = origin + "/projetoPW/view/Formulario.html";
+                }
             }, function (response){
                 var message = response.responseJSON.message;
 
@@ -76,17 +81,28 @@
     }
 
     function formServico (url) {
-        window.location.href = origin + "/admin/view/Contagem.php";
+        sendForm(form, url)
+            .then(function (response) {
+                var message = response.message;
+                form.trigger('reset');
+
+                var state = (response.success) ? 'success' : 'warning';
+                showAlert(message, state);
+            }, function (response){
+                var message = response.responseJSON.message;
+
+                showAlert(message);
+            });
     }
     
     function formCadastro (url) {
         sendForm(form, url)
             .then(function (response) {
                 var message = response.message;
-
                 form.trigger('reset');
 
-                showAlert(message, 'success');
+                var state = (response.success) ? 'success' : 'warning';
+                showAlert(message, state);
             }, function (response){
                 var message = response.responseJSON.message;
 
@@ -110,7 +126,7 @@
     }
 
     function showAlert (message, state) {
-        state = state || 'warnig';
+        state = state || 'warning';
 
         alertMessage
             .addClass('alert-' + state)
