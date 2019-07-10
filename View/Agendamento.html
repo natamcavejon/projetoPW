@@ -34,7 +34,10 @@
                                 <input type="text" class="form-control" placeholder="Placa *" value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Data *" value="" />
+                                <input type="text" class="textbox-n form-control" placeholder="Data *" onfocus="(this.type='date')" onblur="(this.type='text')" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Hora *" value="" />
                             </div>
                             <div>
                                 <input  type="submit" class=" btnRegister"  value="Salvar" />
