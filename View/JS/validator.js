@@ -25,7 +25,7 @@
         routes = {
             login: origin + '/projetoPW/api/login.php',
             cadastro: origin + '/projetoPW/api/cadastrarMecanico.php',
-            servico: origin + '/admin/api/alguem...php',
+            ordemservico: origin + '/projetoPW/api/cadastarOrdemServico.php',
             credito: origin + '/admin/api/InsertCredito.php'
         };
 
@@ -50,7 +50,7 @@
                 case 'cadastro':
                     formCadastro(route);
                     break;
-                case 'servico':
+                case 'ordemservico':
                     formServico(route);
                     break;
                 case 'credito':
@@ -81,7 +81,18 @@
     }
 
     function formServico (url) {
-        window.location.href = origin + "/admin/view/Contagem.php";
+        sendForm(form, url)
+            .then(function (response) {
+                var message = response.message;
+                form.trigger('reset');
+
+                var state = (response.success) ? 'success' : 'warning';
+                showAlert(message, state);
+            }, function (response){
+                var message = response.responseJSON.message;
+
+                showAlert(message);
+            });
     }
     
     function formCadastro (url) {
